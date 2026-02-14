@@ -3,32 +3,43 @@
 <head>
 <title>Special Message for Ketaki</title>
 <style>
+/* Body styling and center alignment */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Horizontal center */
+  align-items: center;     /* Vertical center */
   background: radial-gradient(circle at center, #ffe6f0, #ff99cc);
   color: #333;
   text-align: center;
 }
 
+/* Popup box styling */
 .box {
   background: rgba(255,255,255,0.9);
   padding: 40px 20px;
-  width: 400px;
+  width: 90%;          /* Responsive width */
+  max-width: 400px;    /* Max width for desktop */
   border-radius: 20px;
   box-shadow: 0 0 40px rgba(255,0,120,0.4);
   position: relative;
+  box-sizing: border-box;
 }
 
+/* Heading and message styles */
 h2 {
   color: #ff4da6;
   letter-spacing: 1px;
 }
 
+.message {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+/* Buttons styling */
 button {
   padding: 10px 20px;
   margin: 10px;
@@ -45,12 +56,7 @@ button:hover {
   transform: scale(1.05);
 }
 
-.message {
-  font-size: 18px;
-  margin: 20px 0;
-}
-
-/* Small arrow style for back navigation */
+/* Small back arrow */
 .backArrow {
   position: absolute;
   top: 15px;
@@ -66,13 +72,29 @@ button:hover {
 .backArrow:hover {
   transform: scale(1.2);
 }
+
+/* Responsive adjustments for mobile */
+@media (max-width: 500px) {
+  .message {
+    font-size: 16px;
+  }
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  .backArrow {
+    font-size: 20px;
+    top: 10px;
+    left: 10px;
+  }
+}
 </style>
 </head>
 <body>
 
 <!-- Step 1 -->
 <div class="box" id="step1">
-  <h2>Good Morning, The Brave Girl Ketaki 🌸</h2>
+  <h2>Good Morning, Ketaki 🌸</h2>
   <p class="message">Have a nice day! 😊</p>
   <button onclick="nextStep7()">Continue</button>
 </div>
@@ -155,7 +177,7 @@ function backToStep3() {
 function yesIKnow() {
   document.getElementById("step4").style.display = "none";
   document.getElementById("step5").style.display = "block";
-  document.getElementById("finalMessage").innerText = "Yes, you are really beautiful 🌸";
+  document.getElementById("finalMessage").innerText = "Yes, you are really beautiful 🌸💖";
 }
 function tellMe() {
   document.getElementById("step4").style.display = "none";
@@ -170,4 +192,3 @@ function backToStep4() {
 
 </body>
 </html>
-
