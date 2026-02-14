@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Special Message for Ketaki</title>
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #ffe6f0, #ff99cc);
+  color: #333;
+  text-align: center;
+}
+
+.box {
+  background: rgba(255,255,255,0.9);
+  padding: 40px 20px;
+  width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255,0,120,0.4);
+  position: relative;
+}
+
+h2 {
+  color: #ff4da6;
+  letter-spacing: 1px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  background: linear-gradient(45deg, #ff66aa, #ff0099);
+  color: white;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.message {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.backBtn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff4da6;
+}
+</style>
+</head>
+<body>
+
+<!-- Step 1 -->
+<div class="box" id="step1">
+  <h2>Good Morning, Ketaki 🌸</h2>
+  <p class="message">Have a nice day! 😊</p>
+  <button onclick="nextStep7()">Continue</button>
+</div>
+
+<!-- Step 7: Disclaimer -->
+<div class="box" id="step7" style="display:none;">
+  <p class="message" style="font-size:16px; color:#555;">
+   कृपया रागवू नकोस, हे फक्त टाइम पास मेसेज आहे, फक्त प्रॅक्टिस करत असल्यामुळे लिहले... आशा आहे तुला समजेल 🙏
+  </p>
+  <button onclick="nextStep2()">Continue</button>
+</div>
+
+<!-- Step 2 -->
+<div class="box" id="step2" style="display:none;">
+  <p class="message">Please click on continue, I want to say something to you 💌</p>
+  <button onclick="nextStep3()">Continue</button>
+</div>
+
+<!-- Step 3 -->
+<div class="box" id="step3" style="display:none;">
+  <p class="message">You are so beautiful 🌷</p>
+  <button onclick="nextStep4()">Continue</button>
+</div>
+
+<!-- Step 4 -->
+<div class="box" id="step4" style="display:none;">
+  <p class="message">Do you want to respond? 🤔</p>
+  <button onclick="yesIKnow()">Yes, I know 💖</button>
+  <button onclick="tellMe()">Tell me something I don't know 💌</button>
+</div>
+
+<!-- Step 5 -->
+<div class="box" id="step5" style="display:none;">
+  <button class="backBtn" onclick="backToStep4()">← </button>
+  <p class="message" id="finalMessage"></p>
+</div>
+
+<script>
+function nextStep7() {
+  document.getElementById("step1").style.display = "none";
+  document.getElementById("step7").style.display = "block";
+}
+
+function nextStep2() {
+  document.getElementById("step7").style.display = "none";
+  document.getElementById("step2").style.display = "block";
+}
+
+function nextStep3() {
+  document.getElementById("step2").style.display = "none";
+  document.getElementById("step3").style.display = "block";
+}
+
+function nextStep4() {
+  document.getElementById("step3").style.display = "none";
+  document.getElementById("step4").style.display = "block";
+}
+
+function yesIKnow() {
+  document.getElementById("step4").style.display = "none";
+  document.getElementById("step5").style.display = "block";
+  document.getElementById("finalMessage").innerText = "Yes, you are really beautiful 🌸💖";
+}
+
+function tellMe() {
+  document.getElementById("step4").style.display = "none";
+  document.getElementById("step5").style.display = "block";
+  document.getElementById("finalMessage").innerText = "I know you might not understand my feelings 😔 You are my dearest friend, and I wanted to give you something special… Please accept it 🎁";
+}
+
+// Back button from Step 5 to Step 4
+function backToStep4() {
+  document.getElementById("step5").style.display = "none";
+  document.getElementById("step4").style.display = "block";
+}
+</script>
+
+</body>
+</html>
