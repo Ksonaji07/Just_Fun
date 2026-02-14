@@ -50,11 +50,21 @@ button:hover {
   margin: 20px 0;
 }
 
-.backBtn {
+/* Small arrow style for back navigation */
+.backArrow {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  background: #ff4da6;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  color: #ff4da6;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.backArrow:hover {
+  transform: scale(1.2);
 }
 </style>
 </head>
@@ -69,6 +79,7 @@ button:hover {
 
 <!-- Step 7: Disclaimer -->
 <div class="box" id="step7" style="display:none;">
+  <a class="backArrow" onclick="backToStep1()">←</a>
   <p class="message" style="font-size:16px; color:#555;">
    कृपया रागवू नकोस, हे फक्त टाइम पास मेसेज आहे, फक्त प्रॅक्टिस करत असल्यामुळे लिहले... आशा आहे तुला समजेल 🙏
   </p>
@@ -77,18 +88,21 @@ button:hover {
 
 <!-- Step 2 -->
 <div class="box" id="step2" style="display:none;">
+  <a class="backArrow" onclick="backToStep7()">←</a>
   <p class="message">Please click on continue, I want to say something to you 💌</p>
   <button onclick="nextStep3()">Continue</button>
 </div>
 
 <!-- Step 3 -->
 <div class="box" id="step3" style="display:none;">
+  <a class="backArrow" onclick="backToStep2()">←</a>
   <p class="message">You are so beautiful 🌷</p>
   <button onclick="nextStep4()">Continue</button>
 </div>
 
 <!-- Step 4 -->
 <div class="box" id="step4" style="display:none;">
+  <a class="backArrow" onclick="backToStep3()">←</a>
   <p class="message">Do you want to respond? 🤔</p>
   <button onclick="yesIKnow()">Yes, I know 💖</button>
   <button onclick="tellMe()">Tell me something I don't know 💌</button>
@@ -96,44 +110,58 @@ button:hover {
 
 <!-- Step 5 -->
 <div class="box" id="step5" style="display:none;">
-  <button class="backBtn" onclick="backToStep4()">← </button>
+  <a class="backArrow" onclick="backToStep4()">←</a>
   <p class="message" id="finalMessage"></p>
 </div>
 
 <script>
+// Navigation functions
 function nextStep7() {
   document.getElementById("step1").style.display = "none";
   document.getElementById("step7").style.display = "block";
+}
+function backToStep1() {
+  document.getElementById("step7").style.display = "none";
+  document.getElementById("step1").style.display = "block";
 }
 
 function nextStep2() {
   document.getElementById("step7").style.display = "none";
   document.getElementById("step2").style.display = "block";
 }
+function backToStep7() {
+  document.getElementById("step2").style.display = "none";
+  document.getElementById("step7").style.display = "block";
+}
 
 function nextStep3() {
   document.getElementById("step2").style.display = "none";
   document.getElementById("step3").style.display = "block";
+}
+function backToStep2() {
+  document.getElementById("step3").style.display = "none";
+  document.getElementById("step2").style.display = "block";
 }
 
 function nextStep4() {
   document.getElementById("step3").style.display = "none";
   document.getElementById("step4").style.display = "block";
 }
+function backToStep3() {
+  document.getElementById("step4").style.display = "none";
+  document.getElementById("step3").style.display = "block";
+}
 
 function yesIKnow() {
   document.getElementById("step4").style.display = "none";
   document.getElementById("step5").style.display = "block";
-  document.getElementById("finalMessage").innerText = "Yes, you are really beautiful 🌸💖";
+  document.getElementById("finalMessage").innerText = "Yes, you are really beautiful 🌸";
 }
-
 function tellMe() {
   document.getElementById("step4").style.display = "none";
   document.getElementById("step5").style.display = "block";
-  document.getElementById("finalMessage").innerText = "I know you might not understand my feelings 😔 You are my dearest friend, and I wanted to give you something special… Please accept it 🎁";
+  document.getElementById("finalMessage").innerText = "I know you might not understand my feelings 😔\nYou are my best friend and I wanted to give you a gift… Please accept it 💝";
 }
-
-// Back button from Step 5 to Step 4
 function backToStep4() {
   document.getElementById("step5").style.display = "none";
   document.getElementById("step4").style.display = "block";
